@@ -1,0 +1,35 @@
+<hrcn-wizard [valideerStappen]="false">
+    <div *hrcnWizardStep="'Reintegratie datums'">
+    <form #form="ngForm">    
+        <mat-form-field>
+            <mat-label>Startdatum</mat-label>
+            <input matInput [matDatepicker]="pickerStartdatum" required name="startdatum" [(ngModel)]="reintegratie.startdatum">
+            <mat-datepicker-toggle matSuffix [for]="pickerStartdatum"></mat-datepicker-toggle>
+            <mat-datepicker #pickerStartdatum></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Einddatum</mat-label>
+            <input matInput [matDatepicker]="pickerEinddatum" name="einddatum" [(ngModel)]="reintegratie.einddatum">
+            <mat-datepicker-toggle matSuffix [for]="pickerEinddatum"></mat-datepicker-toggle>
+            <mat-datepicker #pickerEinddatum></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Opmerking</mat-label>
+            <textarea matInput placeholder="Opmerking voor reintegratie" required name="opmerking1" [(ngModel)]="reintegratie.opmerking1" ></textarea>
+            </mat-form-field>
+    </form>
+</div>
+
+<div *hrcnWizardStep="'Reintegratie opmerking'">
+    <form #form="ngForm">
+    <mat-form-field>
+        <mat-label>Opmerking</mat-label>
+        <textarea matInput placeholder="Opmerking voor reintegratie" name="opmerking" [(ngModel)]="reintegratie.opmerking" required></textarea>
+    </mat-form-field>
+</form>
+
+</div>
+
+</hrcn-wizard>

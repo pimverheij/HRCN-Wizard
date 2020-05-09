@@ -1,0 +1,31 @@
+<hrcn-wizard>
+  <div *hrcnWizardStep="'Land'">
+    Hallo Land
+    <select required (input)="onInput($event)">
+      <option value="" selected></option>
+      <option *ngFor="let country of countryService.availableCountries$ | async" [value]="country">{{country}}</option>
+    </select>
+
+  </div>
+  <div *hrcnWizardStep="'Stad'">
+    <ng-container *ngIf="countryService.isStep2Available$ | async; else loader">
+      Hallo Stad
+      <select required>
+        <option value="" selected></option>
+        <option *ngFor="let country of countryService.availableCities$ | async" [value]="country">{{country}}</option>
+      </select>
+      </ng-container>
+    </div>
+</hrcn-wizard>
+
+DEBUGGING
+<pre>
+  {{countryService.availableCities$ | async | json}}
+</pre>
+<pre>
+  {{countryService.availableCountries$ | async | json}}
+</pre>
+<ng-template #loader>
+  <!-- COOLE CSS SPINNER! -->
+</ng-template>
+  

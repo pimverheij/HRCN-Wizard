@@ -1,0 +1,20 @@
+<mat-horizontal-stepper>
+  <mat-step *ngFor="let stap of stappen; first as isFirst; last as isLast">
+    
+    <ng-template matStepLabel>{{stap.title}}</ng-template>
+    <ng-container *ngTemplateOutlet="stap.templateRef"></ng-container>
+
+    <button mat-raised-button matStepperPrevious *ngIf="!isFirst">Vorige</button>
+    <button mat-raised-button color="primary" matStepperNext *ngIf="!isLast" [disabled]="valideerStappen && (!form || form.invalid)">Volgende</button>
+  </mat-step>
+
+  <mat-step>   
+    <ng-template matStepLabel>Controle en akkoord</ng-template>
+    <div>
+      Dit is de laatste stap
+    </div>
+
+    <button mat-raised-button matStepperPrevious>Vorige</button>
+    <button mat-raised-button color="accent" [disabled]="valideerStappen && (!form || form.invalid)">Afronden</button>
+  </mat-step>
+</mat-horizontal-stepper>
