@@ -6,8 +6,8 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { PipeModule } from '../pipes/pipe.module';
-
-
+import { MatCardModule } from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [WizardComponent, WizardStepDirective],
@@ -16,7 +16,9 @@ import { PipeModule } from '../pipes/pipe.module';
     MatStepperModule,
     MatButtonModule,
     FormsModule,
-    PipeModule
+    PipeModule,
+    MatCardModule,
+    MatExpansionModule
   ],
   exports: [WizardComponent, WizardStepDirective] 
 })

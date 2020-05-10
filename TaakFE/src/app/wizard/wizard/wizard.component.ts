@@ -9,12 +9,17 @@ import { NgForm } from '@angular/forms';
 })
 export class WizardComponent implements OnInit {
   @Input() valideerStappen: boolean
+  @Input() controleEnAkkoordUitklapbaar: boolean
 
   @ContentChildren(WizardStepDirective) readonly stappen: QueryList<WizardStepDirective>;
-  @ContentChild(NgForm) form: NgForm;
+  @ContentChild(NgForm) readonly form: NgForm;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit() : void {
+    //debugger
   }
 }

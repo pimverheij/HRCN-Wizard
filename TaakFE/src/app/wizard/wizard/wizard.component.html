@@ -1,20 +1,51 @@
 <mat-horizontal-stepper>
-  <mat-step *ngFor="let stap of stappen; first as isFirst; last as isLast">
-    
+  <mat-step *ngFor="let stap of stappen; first as isFirst;">
     <ng-template matStepLabel>{{stap.title}}</ng-template>
-    <ng-container *ngTemplateOutlet="stap.templateRef"></ng-container>
-
-    <button mat-raised-button matStepperPrevious *ngIf="!isFirst">Vorige</button>
-    <button mat-raised-button color="primary" matStepperNext *ngIf="!isLast" [disabled]="valideerStappen && (!form || form.invalid)">Volgende</button>
+    <div class="step-content">
+      <ng-container *ngTemplateOutlet="stap.templateRef"></ng-container>
+    </div>
+    <div class="button-container">
+      <button mat-raised-button matStepperPrevious *ngIf="!isFirst">Vorige</button>
+      <button mat-raised-button color="primary" matStepperNext [disabled]="(!form || form.invalid)">Volgende</button>
+    </div>
   </mat-step>
 
   <mat-step>   
     <ng-template matStepLabel>Controle en akkoord</ng-template>
-    <div>
-      Dit is de laatste stap
+    <div class="step-content">
+      <ng-container *ngIf="!controleEnAkkoordUitklapbaar">
+        <mat-card *ngFor="let stap of stappen;">
+          <mat-card-header>
+            <mat-card-title>{{stap.title}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <fieldset [disabled]="true">
+                <ng-container *ngTemplateOutlet="stap.templateRef"></ng-container>
+            </fieldset>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+
+      <ng-container *ngIf="controleEnAkkoordUitklapbaar">   
+        <mat-accordion multi="true">
+          <mat-expansion-panel *ngFor="let stap of stappen;" expanded="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{stap.title}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+          
+            <fieldset [disabled]="true">
+              <ng-container *ngTemplateOutlet="stap.templateRef"></ng-container>
+          </fieldset>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </ng-container> 
     </div>
 
-    <button mat-raised-button matStepperPrevious>Vorige</button>
-    <button mat-raised-button color="accent" [disabled]="valideerStappen && (!form || form.invalid)">Afronden</button>
+    <div class="button-container">
+      <button mat-raised-button matStepperPrevious>Vorige</button>
+      <button mat-raised-button color="accent">Afronden</button>
+    </div>  
   </mat-step>
 </mat-horizontal-stepper>

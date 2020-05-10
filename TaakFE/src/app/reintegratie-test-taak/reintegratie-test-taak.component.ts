@@ -6,7 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reintegratie-test-taak.component.scss']
 })
 export class ReintegratieTestTaakComponent implements OnInit {
-  reintegratie: Reintegratie = {};
+  reintegratie: Reintegratie = {
+    startdatum: undefined,
+    einddatum: undefined,
+    opmerking: '',
+  };
+
+  mindate: Date = new Date()
   constructor() { }
 
   ngOnInit(): void {
@@ -16,8 +22,7 @@ export class ReintegratieTestTaakComponent implements OnInit {
 
 
 export interface Reintegratie {
-  opmerking? : string
-  startdatum? : Date
-  einddatum? : Date
-  opmerking1? : string
+  opmerking : string
+  startdatum : Date
+  einddatum : Date
 }   
