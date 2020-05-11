@@ -1,14 +1,17 @@
-<mat-horizontal-stepper>
-  <mat-step *ngFor="let stap of stappen; first as isFirst;">
-    <ng-template matStepLabel>{{stap.title}}</ng-template>
-    <div class="step-content">
-      <ng-container *ngTemplateOutlet="stap.templateRef"></ng-container>
-    </div>
-    <div class="button-container">
-      <button mat-raised-button matStepperPrevious *ngIf="!isFirst">Vorige</button>
-      <button mat-raised-button color="primary" matStepperNext [disabled]="(!form || form.invalid)">Volgende</button>
-    </div>
-  </mat-step>
+<mat-horizontal-stepper [linear]="valideerStappen">
+  <ng-container *ngFor="let stap of stappen; first as isFirst;">
+    <mat-step *ngIf="!stap.overslaan" [stepControl]="stap.form">
+      <ng-template matStepLabel>{{stap.titel}}</ng-template>
+      <div class="step-content">
+        <ng-container *ngTemplateOutlet="stap.directive?.templateRef"></ng-container>    
+      </div>
+      <div class="button-container">
+        <button mat-raised-button matStepperPrevious *ngIf="!isFirst">Vorige</button>
+        <button mat-raised-button color="primary" matStepperNext [disabled]="valideerStappen && stap.form?.invalid">Volgende</button>
+      </div>
+    </mat-step>
+  </ng-container>
+
 
   <mat-step>   
     <ng-template matStepLabel>Controle en akkoord</ng-template>
@@ -16,12 +19,10 @@
       <ng-container *ngIf="!controleEnAkkoordUitklapbaar">
         <mat-card *ngFor="let stap of stappen;">
           <mat-card-header>
-            <mat-card-title>{{stap.title}}</mat-card-title>
+            <mat-card-title>{{stap.titel}}</mat-card-title>
           </mat-card-header>
           <mat-card-content>
-            <fieldset [disabled]="true">
-                <ng-container *ngTemplateOutlet="stap.templateRef"></ng-container>
-            </fieldset>
+            <hrcn-wizard-stap-readonly [form]="stap.form.value"></hrcn-wizard-stap-readonly>
           </mat-card-content>
         </mat-card>
       </ng-container>
@@ -31,13 +32,10 @@
           <mat-expansion-panel *ngFor="let stap of stappen;" expanded="true">
             <mat-expansion-panel-header>
               <mat-panel-title>
-                {{stap.title}}
+                {{stap.titel}}
               </mat-panel-title>
             </mat-expansion-panel-header>
-          
-            <fieldset [disabled]="true">
-              <ng-container *ngTemplateOutlet="stap.templateRef"></ng-container>
-          </fieldset>
+            <hrcn-wizard-stap-readonly [form]="stap.form.value"></hrcn-wizard-stap-readonly>
           </mat-expansion-panel>
         </mat-accordion>
       </ng-container> 

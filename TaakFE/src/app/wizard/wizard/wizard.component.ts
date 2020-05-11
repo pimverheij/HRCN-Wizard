@@ -1,6 +1,7 @@
 import { Component, OnInit, ContentChildren, QueryList, ContentChild, Input } from '@angular/core';
 import { WizardStepDirective } from '../wizard-step.directive';
 import { NgForm } from '@angular/forms';
+import { WizardStapComponent } from '../wizard-stap/wizard-stap.component';
 
 @Component({
   selector: 'hrcn-wizard',
@@ -11,8 +12,7 @@ export class WizardComponent implements OnInit {
   @Input() valideerStappen: boolean
   @Input() controleEnAkkoordUitklapbaar: boolean
 
-  @ContentChildren(WizardStepDirective) readonly stappen: QueryList<WizardStepDirective>;
-  @ContentChild(NgForm) readonly form: NgForm;
+  @ContentChildren(WizardStapComponent) readonly stappen: QueryList<WizardStapComponent>;
 
   constructor() { }
 
@@ -21,5 +21,6 @@ export class WizardComponent implements OnInit {
 
   ngAfterViewInit() : void {
     //debugger
+    //console.log(this.stappen)
   }
 }

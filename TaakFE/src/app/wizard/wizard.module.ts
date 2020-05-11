@@ -8,9 +8,11 @@ import { FormsModule } from '@angular/forms';
 import { PipeModule } from '../pipes/pipe.module';
 import { MatCardModule } from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { WizardStapComponent } from './wizard-stap/wizard-stap.component';
+import { WizardStapReadonlyComponent } from './wizard-stap-readonly/wizard-stap-readonly.component';
 
 @NgModule({
-  declarations: [WizardComponent, WizardStepDirective],
+  declarations: [WizardComponent, WizardStepDirective, WizardStapComponent, WizardStapReadonlyComponent],
   imports: [
     CommonModule,
     MatStepperModule,
@@ -20,6 +22,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatCardModule,
     MatExpansionModule
   ],
-  exports: [WizardComponent, WizardStepDirective] 
+  exports: [WizardComponent, WizardStepDirective, WizardStapComponent] 
 })
 export class WizardModule { }

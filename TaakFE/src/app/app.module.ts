@@ -13,6 +13,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { PipeModule } from './pipes/pipe.module';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PipeModule } from './pipes/pipe.module';
     MatDatepickerModule,
     MatNativeDateModule, 
     FormsModule,
-    PipeModule
+    PipeModule,
+    MatCheckboxModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]

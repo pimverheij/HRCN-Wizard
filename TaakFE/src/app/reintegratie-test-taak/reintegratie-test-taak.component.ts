@@ -9,7 +9,9 @@ export class ReintegratieTestTaakComponent implements OnInit {
   reintegratie: Reintegratie = {
     startdatum: undefined,
     einddatum: undefined,
-    opmerking: '',
+    opmerking: undefined,
+    werkgeverWerktMeeAanSpoor1: false,
+    opmerkingPlaatsen: false
   };
 
   mindate: Date = new Date()
@@ -25,4 +27,6 @@ export interface Reintegratie {
   opmerking : string
   startdatum : Date
   einddatum : Date
+  werkgeverWerktMeeAanSpoor1: boolean,
+  opmerkingPlaatsen: boolean
 }   

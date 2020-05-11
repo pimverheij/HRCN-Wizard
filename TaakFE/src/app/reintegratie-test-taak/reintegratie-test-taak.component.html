@@ -1,5 +1,5 @@
 <hrcn-wizard [valideerStappen]="true" [controleEnAkkoordUitklapbaar]="true">
-    <div *hrcnWizardStep="'Reintegratie datums'">
+    <hrcn-wizard-stap [titel]="'Reintegratie datums'">
         <form #form="ngForm">    
             <mat-form-field>
                 <mat-label>Startdatum</mat-label>
@@ -14,15 +14,24 @@
                 <mat-datepicker-toggle matSuffix [for]="pickerEinddatum"></mat-datepicker-toggle>
                 <mat-datepicker #pickerEinddatum></mat-datepicker>
             </mat-form-field>
-        </form>
-    </div>
 
-    <div *hrcnWizardStep="'Reintegratie opmerking'">
+            <mat-checkbox [(ngModel)]="reintegratie.werkgeverWerktMeeAanSpoor1" name="werkgeverWerktMeeAanSpoor1">Werkgever werkt mee aan spoor 1</mat-checkbox>
+        </form>
+    </hrcn-wizard-stap>
+
+    <hrcn-wizard-stap [titel]="'Reintegratie opmerking plaatsen'">
+        <form #form="ngForm">    
+            <mat-checkbox [(ngModel)]="reintegratie.opmerkingPlaatsen" name="opmerkingPlaatsen">Opmerking plaatsen</mat-checkbox>
+        </form>
+    </hrcn-wizard-stap>
+
+
+    <hrcn-wizard-stap [titel]="'Reintegratie opmerking'" [overslaan]="!reintegratie.opmerkingPlaatsen">
         <form #form="ngForm">
             <mat-form-field>
                 <mat-label>Opmerking</mat-label>
                 <textarea matInput placeholder="Opmerking voor reintegratie" name="opmerking" [(ngModel)]="reintegratie.opmerking" required></textarea>
             </mat-form-field>
         </form>
-    </div>
+    </hrcn-wizard-stap>
 </hrcn-wizard>

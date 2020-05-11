@@ -1,0 +1,4 @@
+<div *ngFor="let veld of velden" class="row">
+    <div class="col-3 key">{{veld[0] | camelcasetospace }}</div>
+    <div class="col-9 value">{{veld[1] | humanizevalue}}</div>
+</div>
