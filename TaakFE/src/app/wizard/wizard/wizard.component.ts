@@ -1,26 +1,56 @@
-import { Component, OnInit, ContentChildren, QueryList, ContentChild, Input } from '@angular/core';
-import { WizardStepDirective } from '../wizard-step.directive';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit, ContentChildren, QueryList, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { WizardStapComponent } from '../wizard-stap/wizard-stap.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TaakService, Taak, TaakType } from '../taak.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'src/app/dialogs/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'hrcn-wizard',
   templateUrl: './wizard.component.html',
-  styleUrls: ['./wizard.component.scss']
+  styleUrls: ['./wizard.component.scss'],
 })
 export class WizardComponent implements OnInit {
+ 
+  TaakType = TaakType;
+  
   @Input() valideerStappen: boolean
   @Input() controleEnAkkoordUitklapbaar: boolean
+  @Input() model: any
+  @Output() updateModelEvent: EventEmitter<any> = new EventEmitter<any>();
 
   @ContentChildren(WizardStapComponent) readonly stappen: QueryList<WizardStapComponent>;
+  taak: Taak;
 
-  constructor() { }
+  constructor(private service: TaakService, 
+    private route: ActivatedRoute, 
+    public dialog: MatDialog, 
+    private router: Router) { }
 
-  ngOnInit(): void {
+  openDialogStopTaak(): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: {titel: 'Stoppen', content: 'Weet je zeker dat wilt stoppen met deze taak? De taak wordt opgeslagen.', buttonText: 'Stoppen'}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result === 'confirm'){
+        this.service.slaTaakOp(this.taak.id, this.model);
+        this.router.navigate(['']);
+      }
+    });
   }
 
-  ngAfterViewInit() : void {
-    //debugger
-    //console.log(this.stappen)
+  ngOnInit(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+
+    this.service.getTaak(id).subscribe(result => {
+      if(result.taakData)
+        this.updateModelEvent.emit(result.taakData);
+      this.taak = result
+    });
+  }
+
+  stopTaak() {
+    this.openDialogStopTaak();
   }
 }

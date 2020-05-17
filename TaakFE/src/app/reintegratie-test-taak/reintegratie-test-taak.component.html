@@ -1,9 +1,9 @@
-<hrcn-wizard [valideerStappen]="true" [controleEnAkkoordUitklapbaar]="true">
+<hrcn-wizard [valideerStappen]="true" [controleEnAkkoordUitklapbaar]="true" [(model)]="reintegratie" (updateModelEvent)="updateTaakData($event)">
     <hrcn-wizard-stap [titel]="'Reintegratie datums'">
         <form #form="ngForm">    
             <mat-form-field>
                 <mat-label>Startdatum</mat-label>
-                <input matInput [matDatepicker]="pickerStartdatum" required name="startdatum" [(ngModel)]="reintegratie.startdatum" [min]="mindate">
+                <input matInput [matDatepicker]="pickerStartdatum" required name="startdatum" [(ngModel)]="reintegratie.startdatum">
                 <mat-datepicker-toggle matSuffix [for]="pickerStartdatum"></mat-datepicker-toggle>
                 <mat-datepicker #pickerStartdatum></mat-datepicker>
             </mat-form-field>
@@ -24,7 +24,6 @@
             <mat-checkbox [(ngModel)]="reintegratie.opmerkingPlaatsen" name="opmerkingPlaatsen">Opmerking plaatsen</mat-checkbox>
         </form>
     </hrcn-wizard-stap>
-
 
     <hrcn-wizard-stap [titel]="'Reintegratie opmerking'" [overslaan]="!reintegratie.opmerkingPlaatsen">
         <form #form="ngForm">

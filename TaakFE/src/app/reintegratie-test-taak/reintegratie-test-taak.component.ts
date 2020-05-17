@@ -20,6 +20,9 @@ export class ReintegratieTestTaakComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  updateTaakData(reintegratie){
+    this.reintegratie = reintegratie;
+  }
 }
 
 

@@ -14,11 +14,14 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { PipeModule } from './pipes/pipe.module';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { HttpClientModule } from '@angular/common/http';
+import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReintegratieTestTaakComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatNativeDateModule, 
     FormsModule,
     PipeModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    HttpClientModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]

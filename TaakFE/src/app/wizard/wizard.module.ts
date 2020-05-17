@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { WizardStapComponent } from './wizard-stap/wizard-stap.component';
 import { WizardStapReadonlyComponent } from './wizard-stap-readonly/wizard-stap-readonly.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [WizardComponent, WizardStepDirective, WizardStapComponent, WizardStapReadonlyComponent],
@@ -20,7 +21,8 @@ import { WizardStapReadonlyComponent } from './wizard-stap-readonly/wizard-stap-
     FormsModule,
     PipeModule,
     MatCardModule,
-    MatExpansionModule
+    MatExpansionModule,
+    HttpClientModule
   ],
   exports: [WizardComponent, WizardStepDirective, WizardStapComponent] 
 })

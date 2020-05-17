@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaakService", "TaakService\TaakService.csproj", "{335BB83B-0BBA-4BAA-9340-D0AC20F04451}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRControlNet.Core.Data", "HRControlNet.Core.Data\HRControlNet.Core.Data.csproj", "{A6928040-B7C0-4565-8221-CA7D943D0185}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRControlNet.Core.Taken", "HRControlNet.Core.Taken\HRControlNet.Core.Taken.csproj", "{7C7E7B8A-97D6-43C6-8C18-BD5A423E68F4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRControlnet.Core.Eventbus", "HRControlnet.Core.Eventbus\HRControlnet.Core.Eventbus.csproj", "{A0DC237A-525D-4329-AFA8-002291B902DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventBus", "EventBus", "{077C1C48-F73F-4B27-B73A-8BC49C82303F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRControlnet.Core.Eventbus.RabbitMQ", "HRControlnet.Core.Eventbus.RabbitMQ\HRControlnet.Core.Eventbus.RabbitMQ.csproj", "{EFE060CF-3108-4247-B5D5-D78491D10AFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{335BB83B-0BBA-4BAA-9340-D0AC20F04451}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{335BB83B-0BBA-4BAA-9340-D0AC20F04451}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{335BB83B-0BBA-4BAA-9340-D0AC20F04451}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{335BB83B-0BBA-4BAA-9340-D0AC20F04451}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6928040-B7C0-4565-8221-CA7D943D0185}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6928040-B7C0-4565-8221-CA7D943D0185}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6928040-B7C0-4565-8221-CA7D943D0185}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6928040-B7C0-4565-8221-CA7D943D0185}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C7E7B8A-97D6-43C6-8C18-BD5A423E68F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C7E7B8A-97D6-43C6-8C18-BD5A423E68F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C7E7B8A-97D6-43C6-8C18-BD5A423E68F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C7E7B8A-97D6-43C6-8C18-BD5A423E68F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0DC237A-525D-4329-AFA8-002291B902DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0DC237A-525D-4329-AFA8-002291B902DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0DC237A-525D-4329-AFA8-002291B902DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0DC237A-525D-4329-AFA8-002291B902DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFE060CF-3108-4247-B5D5-D78491D10AFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFE060CF-3108-4247-B5D5-D78491D10AFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFE060CF-3108-4247-B5D5-D78491D10AFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFE060CF-3108-4247-B5D5-D78491D10AFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A0DC237A-525D-4329-AFA8-002291B902DF} = {077C1C48-F73F-4B27-B73A-8BC49C82303F}
+		{EFE060CF-3108-4247-B5D5-D78491D10AFA} = {077C1C48-F73F-4B27-B73A-8BC49C82303F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B5497B70-EB6D-4972-BCBF-608C06518801}
+	EndGlobalSection
+EndGlobal

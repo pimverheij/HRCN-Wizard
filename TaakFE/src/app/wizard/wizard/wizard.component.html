@@ -1,3 +1,10 @@
+
+
+<div *ngIf="taak" id="taak-infoblok">
+  <h3>{{TaakType[taak.type] | camelcasetospace}}</h3>
+  <p>{{taak.taakomschrijving}}</p>
+</div>
+
 <mat-horizontal-stepper [linear]="valideerStappen">
   <ng-container *ngFor="let stap of stappen; first as isFirst;">
     <mat-step *ngIf="!stap.overslaan" [stepControl]="stap.form">
@@ -5,9 +12,10 @@
       <div class="step-content">
         <ng-container *ngTemplateOutlet="stap.directive?.templateRef"></ng-container>    
       </div>
-      <div class="button-container">
+      <div class="button-container justify-content-between d-flex">
         <button mat-raised-button matStepperPrevious *ngIf="!isFirst">Vorige</button>
-        <button mat-raised-button color="primary" matStepperNext [disabled]="valideerStappen && stap.form?.invalid">Volgende</button>
+        <button mat-raised-button color="warn" (click)="stopTaak()">Stoppen</button>
+        <button mat-raised-button color="primary" matStepperNext [disabled]="valideerStappen && !stap.form?.valid">Volgende</button>
       </div>
     </mat-step>
   </ng-container>
@@ -41,8 +49,9 @@
       </ng-container> 
     </div>
 
-    <div class="button-container">
+    <div class="button-container justify-content-between d-flex">
       <button mat-raised-button matStepperPrevious>Vorige</button>
+      <button mat-raised-button color="warn" (click)="stopTaak()">Stoppen</button>
       <button mat-raised-button color="accent">Afronden</button>
     </div>  
   </mat-step>
