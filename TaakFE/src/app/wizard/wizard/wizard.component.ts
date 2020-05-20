@@ -47,6 +47,8 @@ export class WizardComponent implements OnInit {
       if(result.taakData)
         this.updateModelEvent.emit(result.taakData);
       this.taak = result
+    }, error => {
+      this.router.navigate(['']);
     });
   }
 

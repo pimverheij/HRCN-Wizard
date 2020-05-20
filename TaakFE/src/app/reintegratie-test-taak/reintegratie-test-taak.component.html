@@ -19,9 +19,14 @@
         </form>
     </hrcn-wizard-stap>
 
-    <hrcn-wizard-stap [titel]="'Reintegratie opmerking plaatsen'">
+    <hrcn-wizard-stap [titel]="'Reintegratie opmerking plaatsen?'">
         <form #form="ngForm">    
             <mat-checkbox [(ngModel)]="reintegratie.opmerkingPlaatsen" name="opmerkingPlaatsen">Opmerking plaatsen</mat-checkbox>
+        </form>
+    </hrcn-wizard-stap>
+
+    <hrcn-wizard-stap [titel]="'Reintegratie opmerking plaatsen?'">
+        <form #form="ngForm">    
         </form>
     </hrcn-wizard-stap>
 

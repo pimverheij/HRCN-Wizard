@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class TaakService {
-  baseUrl: string = 'https://localhost:44336/api';
+  baseUrl: string = 'https://localhost:44333/api';
   constructor(private http: HttpClient) { }
 
   public slaTaakOp(id: number, taakContent: any) : void {

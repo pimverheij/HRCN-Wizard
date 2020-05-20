@@ -30,7 +30,7 @@ namespace HRControlNet.Core.Data.Repository
 
         public Task<Taak> ReadTaakAsync(int id)
         {
-            return Task.FromResult(taken.Single(taak => taak.Id == id));
+            return Task.FromResult(taken.SingleOrDefault(taak => taak.Id == id));
         }
     }
 }

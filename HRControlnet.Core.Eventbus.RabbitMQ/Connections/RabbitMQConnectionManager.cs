@@ -31,7 +31,7 @@ namespace HRControlnet.Core.Eventbus.RabbitMQ.Connections
 
             try
             {
-                connection.Dispose();
+                connection?.Dispose();
             }
             catch(IOException ex)
             {

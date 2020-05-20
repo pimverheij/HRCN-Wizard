@@ -34,6 +34,9 @@ namespace TaakService.Controllers
             };
 
             var taak = await messageExecutor.ExecuteAsync(query);
+            if (taak == null)
+                return NotFound();
+
             return Ok(taak);
         }
 

@@ -25,6 +25,8 @@ namespace TaakService.MessageHandlers.QueryHandlers
         public async Task<TaakModel> HandleAsync(ReadTaakQuery query)
         {
             var taak = await taakRepository.ReadTaakAsync(query.Id);
+            if (taak == null)
+                return null;
 
             var taakModel = mapper.Map<TaakModel>(taak);
             taakModel.TaakData = await taakDataRepository.ReadTaakData(query.Id);
